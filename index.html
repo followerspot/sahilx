@@ -141,22 +141,31 @@ Sahil <span class="dubai-glow">Chaudhary™️</span>
             </div>
         </div>
     </div>
-    <script>
+    
+<script>
     const countdownElement = document.getElementById('countdown');
 
     let timeLeft = 5;
+    const redirectURL = "https://t.me/+ANIVKDsdC6ExMmU1";
+
     countdownElement.textContent = timeLeft;
 
-    setInterval(() => {
+    const countdownTimer = setInterval(() => {
         timeLeft--;
 
-        if (timeLeft <= 0) {
-            timeLeft = 5;
-        }
+        if (timeLeft > 0) {
+            countdownElement.textContent = timeLeft;
+        } else {
+            clearInterval(countdownTimer);
+            countdownElement.textContent = "0";
 
-        countdownElement.textContent = timeLeft;
+            // 5 seconds complete hone ke baad redirect
+            window.location.href = redirectURL;
+        }
     }, 1000);
 </script>
+```
+
     
 </body>
 </html>
